@@ -1,0 +1,68 @@
+@use '../abstracts/' as *;
+
+.contact-page {
+
+    .container {
+        background: unset;
+    }
+
+    .section-heading {
+        max-width: 1000px;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .contact-module {
+        @include flexCenter;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 4em;
+        flex-basis: 50%;
+        width: 400px;
+        height: 300px;
+        line-height: 1.4;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &__title {
+            @include flexCenter;
+            background-image: url('../../img/bike-lane.jpg');
+            background-color: rgba(255, 255, 255, 0.541);
+            background-size: cover;
+            background-blend-mode: overlay;
+            width: 100%;
+            // font-weight: bold;
+            font-style: italic;
+            padding: 2rem;
+
+        }
+        &__content {
+            padding: 1em;
+        }
+        &__button {
+            text-decoration: none;
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+            padding: 1rem 2.4rem;
+            box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.315);
+        }
+
+        @media (max-width: $mediaMd) {
+            margin-right: 0;
+            margin-bottom: 4em;
+            flex-basis: 250px;
+            border: 2px solid rgba(0, 0, 0, 0.514);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &__button {
+                margin-bottom: -15px;
+            }
+        }
+    }
+}

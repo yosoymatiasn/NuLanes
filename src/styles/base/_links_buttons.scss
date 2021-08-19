@@ -1,0 +1,6 @@
+@use '../abstracts/' as *;
+
+.inline-link {
+    text-decoration: underline;
+    color: $link-color;
+}

@@ -1,0 +1,44 @@
+.scroll {
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+
+    svg {
+        width: 100%;
+    }
+}
+
+#left-wheel {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: left-wheel 1s linear infinite;
+}
+
+#right-wheel, #g1402 {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: right-wheel 1s linear infinite;
+} 
+
+@keyframes right-wheel {
+    from {
+        transform: translate(216.38px, -245.28px) rotateZ(0deg);
+    }
+    to {
+        transform: translate(216.38px, -245.28px) rotateZ(360deg);
+    }
+}
+
+@keyframes left-wheel {
+    from {
+        transform: translate(111.18px, -245.28px) rotateZ(0deg);
+    }
+    to {
+        transform: translate(111.18px, -245.28px) rotateZ(360deg);
+    }
+}

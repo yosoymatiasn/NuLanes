@@ -1,0 +1,28 @@
+@use '../abstracts/' as *;
+
+.btn, .btn-contact {
+    cursor: pointer;
+    background: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1em 2em;
+    margin-top: 1em;
+    @include easeInOut;
+}
+
+.btn {
+    cursor: pointer;
+    background: $off-black;
+    border: 2px solid transparent;
+    border-radius: 1em;
+    color: $off-white;
+    padding: .6em;
+    margin-top: 1em;
+    @include easeInOut;
+
+    &:hover {
+        background: $off-white;
+        color: $off-black;
+        border: 2px solid $off-black;
+    }
+}

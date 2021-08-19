@@ -1,0 +1,111 @@
+@use 'abstracts' as *;
+
+.nav-container {
+}
+
+.nav {
+    @include flexCenter;
+    justify-content: flex-end;
+
+    &__item {
+        position: relative;
+        margin-right: .8em;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: scaleX(0);
+            transform-origin: left;
+            @include easeInOut;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &.current::before {
+            background-color: black;
+        }
+
+        &.current, &:hover {
+            &::before {
+                transform: scaleX(1);
+            }
+        }
+    }
+
+    &__link {
+        @include easeInOut();
+    }
+}
+
+.mobile-menu {
+    @include flexCenter;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(99, 99, 99);
+    transform: translateX(100%);
+    @include easeInOut;
+    display: none;
+
+    &.menu-open {
+        transform: translateX(0);
+    }
+
+    .mobile-nav{
+        @include flexCenter;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        .nav-link{
+            @include flexCenter;
+            flex-shrink: 0;
+            width: 200px;
+            height: 30vh;
+            padding: 1rem;
+            background-color: black;
+            margin-bottom: .4em;
+            @include easeInOut;
+
+            &.current {
+                background-color: white;
+
+                a {
+                    color: black;
+                }
+            }
+
+            a {
+                display: block;
+                color: white;
+                text-align: center;
+            }
+
+            &:hover {
+                background-color: white;
+
+                a {
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $mediaSm) {
+    nav {
+        display: none;
+    }
+    .mobile-menu {
+        display: flex;
+    }
+}

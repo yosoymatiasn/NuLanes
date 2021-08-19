@@ -1,0 +1,76 @@
+@use '../abstracts/' as *;
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;0,800;1,600&display=swap');
+
+body {
+    font-family: 'EB Garamond', serif;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+// stylesheet
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: .4em;
+}
+
+h2 {
+    font-size: 2.4rem;
+    margin-bottom: .4em;
+}
+
+h3 {
+    font-size: 2rem;
+    margin-bottom: .4em;
+}
+
+h4 {
+    font-size: 1.4rem;
+    margin-bottom: .4em;
+}
+
+p {
+    
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+@media (max-width: $mediaXl) {
+}
+
+
+@media (max-width: $mediaLg) {
+    
+}
+
+@media (max-width: $mediaMd) {
+    h1 {
+        font-size: 2.6rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    h3{
+        font-size: 1.6rem;
+    }
+    h4{
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: $mediaSm) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    h3{
+        font-size: 1.4rem;
+    }
+    h4{
+        font-size: 1.2rem;
+    }
+}

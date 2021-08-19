@@ -1,0 +1,13 @@
+@mixin flexCenter() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin easeInOut($delay:0s, $duration:.2s) {
+    transition: all $duration $delay ease-in-out;
+}
+
+@mixin boxShadow($blur: 2px, $opacity: .5) {
+    box-shadow: rgba(0, 0, 0, $opacity) 2px 2px $blur;
+}
