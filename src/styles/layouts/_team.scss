@@ -1,6 +1,6 @@
 @use '../abstracts/' as *;
 
-.team-page {
+.team-page, .page {
     .container {
         background: unset;
         justify-content: flex-start;
