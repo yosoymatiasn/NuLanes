@@ -1,97 +1,164 @@
 @use '../abstracts/' as *;
 
-.product-page, .page {
+.product-section {
+    justify-content: center;
+    background-image:url('./../../img/bike-lane.jpg');
+    background-color: rgba(255, 255, 255, 0.698);
+    background-blend-mode: overlay;
+    background-size: cover;
+    filter: grayscale(1);
+    border-top: 4em solid white;
+    margin-top: -4em;
 
-    .container {
-        justify-content: flex-start;
+    .row {
+        @include flexCenter;
+        justify-content: space-between;
+        align-items: flex-end;
     }
 
-    .product-section {
-        justify-content: space-between;
-        align-items: flex-start;
+    .section-heading {
+    }
 
+    &__modules {
+        @include flexCenter;
+        justify-content: space-between;
+        flex-direction: column;
+        flex-shrink: 2;
+        width: min(100%, 850px);
+        margin-right: 5em;
+    }
+
+    &__module {
+        background-color: white;
+        margin-bottom: 3.2em;
+        padding: 2em;
+        @include boxShadow(2px, .2);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        p {
+            line-height: 1.4;
+            font-size: 1.6rem;
+        }
+
+        h4 {
+            font-weight: bold;
+            font-style: italic;
+            margin-bottom: .4em;
+        }
+    }
+
+    &__display {
+        @include flexCenter;
+        flex-direction: column;
+        justify-content: space-around;
+        flex-shrink: 0;
+        position: relative;
+        width:300px;
+        height: 600px;
+        background-color: black;
+        padding: 2em 1em;
+        margin-right: 46px;
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 20px;
+            background-color: rgba(131, 131, 131, 0.527);
+            transform: translateX(calc(-30px));
+
+        }
+
+        &::after {
+            left: unset;
+            right: 0;
+            transform: translateX(calc(30px));
+        }
+    }
+
+    &__display-text {
+        font-size: 1.6rem;
+        color: $off-white;
+        text-align: center;
+    }
+    
+    &__display-logo {
+        width: 100%;
+        height: 100%;
+        background-image: url('../../img/biki-icon.png');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    @media (max-width: $mediaLg) {
         &__modules {
-            @include flexCenter;
-            flex-direction: column;
-            flex-shrink: 2;
-            width: min(100%, 600px);
-            margin-right: 4em;
+            margin-right: 3em;
         }
 
         &__module {
-            background-color: white;
-            margin-bottom: 2em;
-            padding: 1em;
-            @include boxShadow(2px, .2);
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-
             p {
-                line-height: 1.4;
+                font-size: 1.2rem;
             }
+        }
+    }
 
-            h4 {
-                font-weight: bold;
-                font-style: italic;
-                margin-bottom: .4em;
+    @media (max-width: $mediaMd) {
+        margin-top: 0;
+        border-top: none;
+        
+
+        .row {
+            align-items: center;
+            height: unset;
+        }
+
+        &__modules {
+            margin-right: 0;
+            margin-bottom: 2em;
+        }
+        &__module {
+            margin-bottom: 2em;
+            p {
+                font-size: 1rem;
             }
         }
 
         &__display {
-            @include flexCenter;
-            flex-direction: column;
-            justify-content: space-around;
-            flex-shrink: 0;
-            position: relative;
-            width: 200px;
+            margin-right: 0;
             height: 400px;
-            background-color: black;
-            padding: 2em 1em;
-            margin-right: 2.4em;
+        }
+    }
 
-            &::before, &::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 20px;
-                background-color: rgba(131, 131, 131, 0.527);
-                transform: translateX(calc(-100% - 10px));
-            }
 
-            &::after {
-                left: unset;
-                right: 0;
-                transform: translateX(calc(100% + 10px));
-            }
+    @media (max-width: $mediaSm) {
+        .row {
+            flex-direction: column;
+            align-items: center;
+            height: unset;
+        }
+
+        &__modules {
+            margin-bottom: 4em;
+            margin-right: 0;
+        }
+
+        &__display {
+            height: 300px;
+            width: 150px;
+        }
+
+        &__display-logo {
+            background-size: contain;
         }
 
         &__display-text {
-            font-size: 1.6rem;
-            color: $off-white;
-            text-align: center;
-        }
-        
-        &__display-logo {
-            width: 100%;
-            height: 100%;
-            background-image: url('../../img/biki-icon.png');
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        @media (max-width: $mediaSm) {
-            flex-direction: column;
-            align-items: center;
-            padding: 4em 0;
-
-            &__modules {
-                margin-bottom: 4em;
-                margin-right: 0;
-            }
+            font-size: 1.2rem;
         }
     }
+
 }

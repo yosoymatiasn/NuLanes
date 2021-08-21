@@ -3,6 +3,62 @@
 footer {
     @include flexCenter;
     background-color: rgb(211, 211, 211);
-    height: 100px;
+    height: 300px;
     width: 100%;
+    padding: 2em;
+
+    .rows {
+        flex-direction: row;
+        width: min(1000px, 100%);
+    }
+
+    .row {
+        @include flexCenter;
+    }
+
+    .tm {
+        // align-items: flex-start;
+        flex-direction: column;
+
+        img {
+            margin-bottom: 1em;
+            width: 100px;
+        }
+        p {
+            font-size: .8rem;
+        }
+    }
+    .social-links {
+
+        p {
+            margin-bottom: 1em;
+        }
+    
+        .links-container {
+            @include flexCenter;
+            // justify-content: flex-start;
+    
+            a {
+                margin-right: 1em;
+                font-size: 2em;
+    
+                &:last-child { 
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    @media (max-width: $mediaSm) {
+        .rows { 
+            flex-direction: column-reverse;
+        }
+        .row {
+            margin-bottom: 3rem !important;
+
+            &:first-child {
+                margin-bottom: 0;
+            }
+        }
+    }
 }

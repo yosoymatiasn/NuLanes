@@ -1,28 +1,64 @@
 @use '../abstracts/' as *;
-
-.purpose-page, .page {
-    .container {
-        background: unset;
-    }
     
-    .purpose-section {
+.purpose-section {
 
+    .row.purpose::before {
+        content: 'Hover over for supporting data';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, calc(100% + 1rem));
+        background: rgba(190, 190, 190, 0.472);
+        padding: .8em;
+        border-radius: 10px;
+        color: rgba(51, 51, 51, 0.883);
+        animation: attention 1s ease-in-out infinite alternate;
+
+        @keyframes attention {
+            from {
+                transform: translate(-50%, calc(100% + 1rem));
+            }
+            to {
+                transform: translate(-50%, calc(100% + 1.4rem));
+            }
+        }
+
+        @media (max-width: $mediaMd) {
+            display: none;
+        }
     }
 
-    h3 {
-        max-width: 1000px;
-        line-height: 1.4;
-        text-align: center;
+    .call-to-hover {
+        display: none;
+        width: 100%;
+        margin-bottom: 2rem;
+        background: rgba(190, 190, 190, 0.472);
+        padding: .8em;
+        border-radius: 10px;
+        color: rgba(51, 51, 51, 0.883);
+
+        @media (max-width: $mediaMd) {
+            display: block;
+        }
     }
 
-    .purpose-module {
+    .purpose-card {
+        position: relative;
         @include flexCenter;
+        @include boxShadow;
+        flex-basis: 33%;
+        flex-shrink: 1;
         flex-direction: column;
+        justify-content: flex-start;
         line-height: 1.4;
         text-align: center;
-        max-width: 250px;
-        flex-basis: 33%;
-        margin-right: 2em;
+        // border: solid 1px black;
+        height: 400px;
+        width: 400px;
+        z-index: 1;
+        overflow: hidden;
+        margin-right: 1rem;
+        margin-top: 3em;
 
         &:last-child {
             margin-right: 0;
@@ -30,32 +66,119 @@
 
         &__title {
             @include flexCenter;
+            flex-basis: 44%;
+            flex-shrink: 0;
             background-image: url(../../img/bike-lane.jpg);
             background-size: cover;
             background-color: rgba(0, 0, 0, 0.548);
             background-blend-mode: overlay;
-            height: 250px;
             width: 100%;
-            
-            border-radius: 50%;
             color: white;
             font-weight: bold;
+
+            h4 {
+                font-size: 1.8rem;
+            }
+
+            @media (max-width: $mediaLg) {
+                h4 {
+                    font-size: 1.6rem;
+                }
+            }
+            @media (max-width: $mediaMd) {
+                h4 {
+                    font-size: 1.4rem;
+                }
+            }
+            @media (max-width: $mediaSm) {
+                h4 {
+                    font-size: 1.3rem;
+                }
+            }
         }
 
         &__content {
+            @include flexCenter;
+            flex-basis: 66%;
             width: 100%;
             background-color: white;
-            margin-top: -50px;
-            padding: 1em 0;
+            padding: .8em 1.4em;
+            // padding: .8em;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        &__chart {
+            @include flexCenter;
+            @include easeInOut;
+            transition-timing-function: ease-in;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-color: rgb(253, 253, 253);
+            padding: 1em;
+            transform: scale(1.4);
+            border: solid 2px black;
+
+            img {
+                width: 100%;
+                max-height: 100%;
+            }
+
+            a {
+                @include flexCenter;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                background: rgba(156, 156, 156, 0.383);
+                padding: .4rem;
+                color: rgba(0, 0, 0, 0.746);
+            }
+        }
+
+        &.display-chart {
+            .purpose-card__chart {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @media (max-width: $mediaXl) {
+            height: 340px;
+
+            &__title {
+                flex-basis: 40%;
+            }
+
+            &__content {
+                flex-basis: 60%;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: $mediaLg) {
+
+            &__title {
+                // flex-basis: 50%;
+            }
+
+            &__content {
+                // flex-basis: 50%;
+                font-size: 1rem;
+                padding: 1em 1.2em;
+            }
         }
 
         @media (max-width: $mediaMd) {
             flex-basis: unset;
             flex-direction: row;
-            max-width: 100%;
-            height: 175px;
-            margin-right: 0;
+            width: 100%;
+            height: 200px;
             margin-bottom: 2em;
+            margin-top: 0;
 
             &:last-child {
                 margin-bottom: 0;
@@ -84,33 +207,39 @@
                 height: 100%;
                 border: 2px solid rgba(0, 0, 0, 0.308);
                 border-left: none;
-                // border-right: none;
-            }
-        }
-    }
-
-    .charts {
-        width: 100vw;
-        justify-content: space-around;
-        align-items: center;
-        
-        .purpose-chart {
-            @include flexCenter;
-            width: min(80%, 400px);
-            margin-right: 4em;
-            
-            &:last-child {
-                margin-right: 0;
+                font-size: 1rem;
             }
 
-            @media (max-width: $mediaMd) {
-                margin-right: 0;
-                margin-bottom: 4em;
-
-                &:last-child {
-                    margin-bottom: 0;
+            &__chart {
+                a {
+                    right: 0;
+                    height: 100%;
+                    width: unset;
                 }
             }
         }
+
+        @media (max-width: $mediaSm) {
+            flex-direction: column;
+            height: 300px;
+            margin-right: 0;
+
+            &__title {
+                width: 100%;
+            }
+
+            &__content {
+                width: 100%;
+            }
+
+            &__chart {
+                a {
+                    right: unset;
+                    height: unset;
+                    width: 100%;
+                }
+            }
+        }
+
     }
 }

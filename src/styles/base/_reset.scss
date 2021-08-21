@@ -71,6 +71,10 @@ td {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* remember to define focus styles! */
 :focus {
     outline: 0;
@@ -114,6 +118,7 @@ q {
 }
 
 img {
+    display: block;
     max-width: 100%;
 }
 

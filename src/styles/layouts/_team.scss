@@ -1,43 +1,10 @@
 @use '../abstracts/' as *;
 
-.team-page, .page {
-    .container {
-        background: unset;
-        justify-content: flex-start;
-    }
-
-    .row {
-        justify-content: center;
-        align-items: center;
-
-        &:first-child {
-            margin-bottom: 1em;
-        }
-    }
-
-    .section-heading {
-        width: 100%;
-    }
-
-    .about-introduction {
-        @include flexCenter;
-        flex-shrink: 0;
-        justify-content: flex-start;
-        background-image: url(../../img/bike-lane.jpg);
-        background-size: cover;
-        filter: grayscale(.4);
-        flex-basis: 40%;
-        margin-right: 4em;
-        height: 300px;
+.team-section {
     
-
-        p {
-            line-height: 1.4;
-            background-color: white;
-            padding: .4rem;
-            padding-bottom: 2rem;
-            width: 60%;
-        }
+    .row {
+        justify-content: flex-start;
+        align-items: center;
     }
 
     .contact-container {
@@ -50,6 +17,7 @@
         margin-right: 4em;
 
         .headshot {
+            @include boxShadow;
             background-image: url(../../img/headshot.jpg);
             // background-color: rgba(0, 0, 0, 0.466);
             background-blend-mode: overlay;
@@ -80,50 +48,115 @@
         }
 
         .btn-contact {
+            position: relative;
             display: block;
             text-align: center;
             width: 100%;
             color: black;
             font-style: italic;
+            overflow: hidden;
+
+            &::before {
+                @include easeInOut(0s,.4s);
+                content: 'Email Dan.';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: black;
+                color: white;
+                padding: 1em 2em;
+                clip-path: circle(50px at 0 50%);
+            }
+
+            &:hover::before {
+                clip-path: circle(800px at 0 0);
+            }
         }
+    }
+    .row.about {
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
     .about {
+        // height: 100px;
 
-        p {
+        &-heading {
+            margin-bottom: 2em;
+        }
+
+        .linked-in {
+            position: relative;
+            @include easeInOut;
             @include flexCenter;
-            flex-basis: 33%;
-            padding: .2em 1.4em;
-            padding-left: .2em;
-            line-height: 1.4;
-            color: white;
-            background-color: black;
-            border-radius: 18px;
-            border: 2px solid black;
-            margin-right: 2em;
-            height: 150px;
-            @include boxShadow;
+            font-size: 4rem;
+            padding: .4rem .6rem;
+            margin-right: 1em;
+            overflow: hidden;
 
             &::before {
+                @include easeInOut;
                 content: '';
-                width: 40%;
+                position: absolute;
+                z-index: -1;
+                top:0;
+                left: 0;
+                width: 100%;
                 height: 100%;
-                background-color: white;
-                border-radius: 18px;
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-                margin-right: 1rem;
+                background-color: rgba(0, 0, 0, 0.877);
+                border-radius: 8px;
+                transform: translateX(-105%);
             }
 
-            &:last-child {
-                margin-right: 0;
+            &:hover {
+                color: white;
+            
+                &::before{
+                    transform: translateX(0);
+                }
             }
         }
+
+        &__list {
+            display: list-item;
+            @include flexCenter;
+            align-items: flex-start;
+        }
+
+        &__list-item {
+            @include flexCenter;
+            justify-content: flex-start;
+            position: relative;
+            line-height: 1.4;
+            font-style: italic;
+            min-height: 125px;
+            max-width: 300px;
+            padding: .4rem;
+            padding-left: 1.2rem;
+            border-left: 4px solid rgb(105, 105, 105);
+
+            &::before {
+                // content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 4px;
+                height: 100%;
+                background-color: black;
+
+                transform: translateX(calc(-100% - 0em));
+                transform: translateX(-100%);
+            }
+        }
+
     }
 
     @media (max-width: $mediaXl) {
-        .row.introduction {
-            flex-direction: column-reverse;
+        .introduction {
+            // flex-direction: column-reverse;
 
             .about-introduction {
                 flex-basis: unset;
@@ -138,30 +171,61 @@
         }
     }
 
-    @media (max-width: $mediaMd) {
-        .row.introduction {
-            margin-bottom: 2em;
 
+    @media (max-width: $mediaMd) {
+        .about {
+            display: block;
+            float: left;
+
+            .linked-in {
+                display: block;
+                float: left;
+                margin-right: 1rem;
+                margin-bottom: 1.4rem;
+            }
+
+            &-heading {
+                padding: 0;
+            }
+
+            &__list {
+                display: block;
+                float: left;
+                // width: min(100%, 500px);
+            }
+
+            &__list-item {
+                max-width: unset;
+                margin: 0;
+                margin-bottom: 1rem;
+                max-width: 400px;
+                min-height: 100%;
+            }
+        }
+    }
+    
+    @media (max-width: $mediaSm) {
+        .introduction {
+            
             .contact-container {
                 flex-direction: column;
             }
 
             .headshot-container {
                 margin-right: 0;
-                margin-bottom: 2em;
+                margin-bottom: 2rem;
             }
-        }
 
-        .row.about {
+            .get-in-touch {
 
-            p {
-                margin-right: 0;
-                margin-bottom: 2em;
-                width: 80%;
-                height: 120px;
-                flex-basis: unset;
+                p {
+                    font-size: 1rem;
+                }
+
+                .btn-contact {
+                    padding: .6rem 1rem;
+                }
             }
         }
     }
-
 }

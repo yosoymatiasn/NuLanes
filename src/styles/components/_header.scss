@@ -2,25 +2,77 @@
 $hamburger-size: 40px;
 
 :root {
-    --header-height: 100px;
+    --header-height: 125px;
 }
 
+
 header {
+    @include easeInOut;
+    width: 100%;
     position: fixed;
-    width: min(100%, 1200px);
-    height: var(--header-height);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     z-index: 999;
 
-    @media (max-width: $mediaXl) {
-        padding: 0 5%;
+    &.sticky {
+        --header-height: 60px;
+        background-color: rgba(0, 0, 0, 0.822);
+        transition-delay: 0s;
+
+        &.header-unpinned {
+            transform: translateY(-100%);
+        }
+
+        .logo-container {
+
+        }
+    }
+
+    @media (max-width: $mediaMd) {
+        background-color: rgba(0, 0, 0, 0.822);
+        --header-height: 80px;
+    }
+}
+
+.header {
+    @include flexCenter;
+    justify-content: space-between;
+    @include easeInOut;
+    padding: .4em 2em;
+    height: var(--header-height);
+}
+
+.old-header {
+    width: min(100%, 1200px);
+    padding: 0;
+
+    .nav__link {
+        font-size: 1rem;
     }
 }
 
 .logo-container {
-    width: 100px;
+
+    .logo {
+        @include easeInOut;
+        height: var(--header-height);
+        padding: .4em;
+    }
+
+    path, rect {
+        @include easeInOut;
+    }
+
+    .logo.sticky path, .logo.sticky rect {
+        transition-delay: .4s;
+        fill: white;
+    }
+
+    @media (max-width: $mediaMd) {
+        width: 100px;
+
+        .logo path, .logo rect {
+            fill: white;
+        }
+    }
 }
 
 .hamburger-toggle {
@@ -67,10 +119,22 @@ header {
 
         }
     }
+
+    &.sticky div {
+        transition-delay: .4s;
+        background-color: white;
+    }
 }
 
-@media (max-width: $mediaSm) {
+@media (max-width: $mediaMd) {
+    .logo {
+
+    }
     .hamburger-toggle {
         display: flex;
+
+        div {
+            background-color: white;
+        }
     }
 }
