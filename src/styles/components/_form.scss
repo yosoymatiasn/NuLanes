@@ -1,0 +1,25 @@
+form {
+
+}
+
+label {
+    display: none;
+}
+
+input {
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    padding: .4em;
+    border: 2px solid black;
+    width: 100%;
+    margin-bottom: .4em;
+
+    &::placeholder {
+        color: rgb(0, 0, 0);
+    }
+}
+
+form .btn {
+    border-radius: 0;
+    margin-top: 1em;
+}

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <title>NuLanes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles/styles.css">
@@ -75,20 +76,18 @@
             </div>
         </div>
     </header>
-    <!-- <div class="container"> -->
-        <div class="banner">
-            <div class="banner__image"></div>
-            <div class="banner__hero">
-                <h1 class="banner__text">
-                    NuLanes generates recurring revenue for cities
-                    through companies getting exposure on bike lanes
-                </h1>
-            </div>
-            <a class="arrow-wrap" href="#product">
-                <img src="img/arrow.png" class="arrow"></img>
-            </a>
+    <div class="banner">
+        <div class="banner__image"></div>
+        <div class="banner__hero">
+            <h1 class="banner__text">
+                NuLanes generates recurring revenue for cities
+                through companies getting exposure on bike lanes
+            </h1>
         </div>
-    <!-- </div> -->
+        <a class="arrow-wrap" href="#product">
+            <img src="img/arrow.png" class="arrow"></img>
+        </a>
+    </div>
 
     <section id="product" class="product-section">
         <div class="slant-overlay"></div>
@@ -187,34 +186,40 @@
     <section id="team" class="team-section">
         <div class="container">
             <div class="rows">
-                <div class="row introduction">
-                    <div class="contact-container">
+                <div class="row">
+                    <div class="introduction-container">
                         <div class="headshot-container">
                             <div class="headshot"></div>
-                            <div class="name">Dan New<br>Founder</div>
+                            <div class="info-container">
+                                <div class="name-container">
+                                    <p class="name">Dan New</p>
+                                    <p class="title">Founder</p>
+                                </div>
+                                <a href="" class="linked-in"><i class="fab fa-linkedin"></i></a>
+                            </div>
                         </div>
-                        <div class="get-in-touch">
-                            <p>Get in touch with Dan now and expect correspondence within the next 24-hours</p>
-                            <a href="" class="btn-contact">Email Dan</a>
+
+                        <div class="about">
+                            <h4 class="about-heading">Overview of Dan's credentials...</h4>
+                            <ul class="about__list">
+                                <li class="about__list-item">
+                                    3 years in consulting - primarily focused on sculpting the future of infrastructure in cities
+                                </li>
+                                <li class="about__list-item">
+                                    3 nonprofit board seats - Board member at One Sandwich at a Time, Junior Board Co-Chairman at Part of the Solution &  Advisory Board Member at Swim Strong Foundation
+                                </li>
+                                <li class="about__list-item">
+                                    Endurance sport enthusiast - competed in four 100-mile bike rides, and several triathlons
+                                </li>
+                            </ul>
+                            <div class="get-in-touch">
+                                <p>Get in touch with Dan now and expect correspondence within the next 24 hours</p>
+                                <a class="btn-contact">Reach out to Dan</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row about">
-                    <div class="about-heading flex100">
-                        <h4>Overview of Dan's credentials...</h4>
-                    </div>
-                    <a href="" class="linked-in"><i class="fab fa-linkedin"></i></a>
-                    <ul class="about__list">
-                        <li class="about__list-item">
-                            3 years in consulting - primarily focused on sculpting the future of infrastructure in cities
-                        </li>
-                        <li class="about__list-item">
-                            3 nonprofit board seats - Board member at One Sandwich at a Time, Junior Board Co-Chairman at Part of the Solution &  Advisory Board Member at Swim Strong Foundation
-                        </li>
-                        <li class="about__list-item">
-                            Endurance sport enthusiast - competed in four 100-mile bike rides, and several triathlons
-                        </li>
-                    </ul>
+                <div class="row">
                 </div>
             </div>
         </div>
@@ -223,8 +228,23 @@
     <footer>
         <div class="rows">
             <div class="row tm">
-                <img src="/img/logo.svg" alt="">
+                <img src="img/logo.svg" alt="">
                 <p>&#xa9; NuLanes | All Rights Reserved</p>
+            </div>
+            <div class="row">
+                <div class="signup">
+                    <form action="email.php" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input id="name" name="name" type="text" placeholder="Your Name" tabindex="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input id="email" name="email" type="email" placeholder="Your Email" tabindex="1" required>
+                        </div>
+                        <button class="btn" type="submit">Submit your email and receive latest from Nulanes!</button>
+                    </form>
+                </div>
             </div>
             <div class="row">
                 <div class="social-links">
@@ -242,8 +262,8 @@
         </div>
     </footer>
 
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/functions.js" type="text/javascript"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/functions.js" type="text/javascript"></script>
     <script>
         // smooth scrolling
         $(function() {
@@ -264,7 +284,7 @@
                 $('.hamburger-toggle').removeClass('menu-open');
             })
         });
-        </script>
+    </script>
 </body>
 
 </html>
