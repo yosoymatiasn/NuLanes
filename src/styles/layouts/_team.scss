@@ -21,6 +21,7 @@
         margin-right: 4em;
 
         .headshot {
+            @include easeInOut;
             --size: 30vw;
             min-width: 200px;
             min-height: 200px;
@@ -30,12 +31,16 @@
             border: 1px solid rgba(0, 0, 0, 0.548);
             background-image: url(../img/headshot.png);
             background-blend-mode: overlay;
-            background-size: cover;
+            background-size: 100%;
             background-position: top center;
             width: var(--size);
             height: var(--size);
             border-radius: 50%;
             filter: grayscale(1);
+
+            &:hover {
+                background-size: 90%;
+            }
         }
 
         .info-container {
@@ -70,10 +75,8 @@
                 font-size: 4rem;
                 padding: .4rem .6rem;
                 overflow: hidden;
-                // position: absolute;
                 right: 0;
                 top: 50%;
-                // transform: translateY(-50%);
 
                 
                 &:hover {
@@ -153,6 +156,7 @@
         line-height: 1.6;
         margin-top: 6em;
         width: 400px;
+        width: 100%;
 
         p {
             font-size: 1.4rem;
@@ -190,6 +194,17 @@
             padding-right: 0;
         }
 
+        .headshot-container {
+            .info-container {
+                .name,.title {
+                    font-size: 1.2rem;
+                }
+                .linked-in {
+                    font-size: 4rem;
+                }
+            }
+        }
+
         .about {
             &-heading {
                 padding: 0;
@@ -197,6 +212,7 @@
 
             &__list {
                 display: block;
+                margin-left: 0;
             }
 
             &__list-item {
@@ -209,6 +225,9 @@
             }
 
             .get-in-touch {
+                margin-top: 4em;
+                width: unset;
+
                 p {
                     font-size: 1.2rem;
                 }

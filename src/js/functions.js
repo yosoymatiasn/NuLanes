@@ -1,5 +1,5 @@
 $(function () {
-	const sections = $("section");
+	const sections = $("section, .banner");
 
 	$(".hamburger-toggle").click(function (e) {
 		e.preventDefault();
@@ -47,14 +47,16 @@ $(function () {
 			var viewportTop = topWindow;
 			var viewportMiddle = viewportTop + windowHeight / 2;
 
+			const navLinks = $(".nav__item>a");
+
 			if (elementBottom > viewportTop && elementTop < viewportMiddle) {
-				$(".nav__item").each((i, link) => {
+				navLinks.each((i, link) => {
 					$link = $(link);
-					var text = $link.find("a").text().toLowerCase();
-					if (text.indexOf(item.id) > 0) {
-						$link.addClass("active-link");
+					var text = $link.attr("name");
+					if (item.id && text.indexOf(item.id) > -1) {
+						$link.parent().addClass("active-link");
 					} else {
-						$link.removeClass("active-link");
+						$link.parent().removeClass("active-link");
 					}
 				});
 			}

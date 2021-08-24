@@ -62,7 +62,7 @@ header {
     }
 
     .logo.sticky path, .logo.sticky rect {
-        transition-delay: .4s;
+        // transition-delay: .4s;
         fill: white;
     }
 
@@ -88,7 +88,8 @@ header {
 
     &.menu-open {
         div {
-            background-color: rgb(0, 0, 0);
+            background-color: white;
+
             &:first-child {
                 transform: translateY(calc(#{$hamburger-size}/2 - 50%)) rotate(45deg) translateX(-5%);
             }
@@ -121,7 +122,7 @@ header {
     }
 
     &.sticky div {
-        transition-delay: .4s;
+        // transition-delay: .4s;
         background-color: white;
     }
 }
