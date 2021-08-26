@@ -254,7 +254,8 @@
         }
 
         .headshot-container {
-            margin: 0 auto;
+            margin: 0 auto; 
+            margin-bottom: 2em;
 
             .headshot {
                 --size: 300px;
@@ -264,6 +265,7 @@
         .about {
             &-heading {
                 margin-bottom: 1em;
+                font-size: 1.6rem;
             }
         }
 

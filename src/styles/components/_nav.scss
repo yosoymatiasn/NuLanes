@@ -19,9 +19,11 @@
             width: 100%;
             height: 6px;
             background-color: rgb(255, 255, 255);
-            transform: scaleX(0);
-            transform-origin: left;
-            @include easeInOut;
+            // transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform ease-in .2s;
+            height: 0px;
+            // transition: height ease-in .2s;
         }
 
         &:last-child {
@@ -30,7 +32,8 @@
 
         &:hover, &.active-link {
             &::before {
-                transform: scaleX(1);
+                // transform: scaleY(1);
+                height: 6px;
             }
         }
     }
