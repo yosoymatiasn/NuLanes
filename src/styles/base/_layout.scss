@@ -14,12 +14,16 @@
     margin-right: auto;
 }
 
+.banner { 
+    height: min(100vh, 1000px);
+    width: min(1400px, 100%);
+}
+
 section, .banner {
     position: relative;
     @include flexCenter;
     flex-direction: column;
     width: 100%;
-    min-height: min(100vh, 1000px);
     padding: 30px;
 
     @media (max-width: $mediaLg){}
@@ -29,6 +33,11 @@ section, .banner {
     @media (max-width: $mediaSm){
         padding: 4em 1em;
     }
+}
+
+
+section {
+    padding: 6em 30px;
 }
 
 // .container {

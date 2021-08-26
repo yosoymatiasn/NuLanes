@@ -28,14 +28,15 @@
     
         &__title {
             @include flexCenter;
-            background-image: url('../img/bike-lane.jpg');
-            background-color: rgba(255, 255, 255, 0.541);
+            background-color: rgba(0, 0, 0, 0.548);
+            filter: grayscale(1);
             background-size: cover;
             background-blend-mode: overlay;
             width: 100%;
             height: 40%;
             font-style: italic;
             padding: 2rem;
+            color: white;
     
         }
         &__content {
@@ -79,6 +80,18 @@
                 padding: .6rem 1.8rem;
                 margin-bottom: -24px;
             }
+        }
+    }
+
+    .contact-module {
+        &:first-child .contact-module__title{
+            background-image: url('../img/cities.jpeg');
+            background-position: bottom;
+            background-size: 80%;
+        }
+        &:last-child .contact-module__title{
+            background-image: url('../img/companies.jpeg');
+            background-position: left center;
         }
     }
 }

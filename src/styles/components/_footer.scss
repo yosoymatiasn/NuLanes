@@ -1,35 +1,45 @@
 @use '../abstracts/' as *;
 
 footer {
+    position: relative;
+    --off-white: rgba(255, 255, 255, 0.952);
     @include flexCenter;
-    background-color: rgb(211, 211, 211);
+    align-items: flex-start;
+    background-color: rgb(0, 0, 0);
     width: 100%;
-    padding: 2em;
+    padding: 4em;
+
+    p, i {
+        color: var(--off-white) !important;
+    }
 
     .rows {
         flex-direction: row;
-        width: min(1000px, 100%);
+        align-items: flex-start;
+        width: min(1400px, 100%);
     }
 
     .row {
         @include flexCenter;
+        margin-bottom: 0;
     }
 
     .tm {
-        // align-items: flex-start;
         flex-direction: column;
+        // align-items: flex-start;
 
         img {
             margin-bottom: 1em;
-            width: 100px;
+            width: 180px;
         }
         p {
-            font-size: .8rem;
+            font-size: 1.2rem;
         }
     }
     .social-links {
 
         p {
+            font-size: 1.2rem;
             margin-bottom: 1em;
         }
     
@@ -39,7 +49,7 @@ footer {
     
             a {
                 margin-right: 1em;
-                font-size: 2em;
+                font-size: 3em;
     
                 &:last-child { 
                     margin-right: 0;
@@ -48,6 +58,29 @@ footer {
         }
     }
 
+    @media (max-width: $mediaLg) {
+        .rows {
+            flex-direction: column-reverse;
+        }
+
+        .row {
+            flex-direction: column;
+            justify-content: flex-start;
+            width: min(400px, 100%);
+            margin: 0 auto;
+            margin-bottom: 6em;
+
+            &:first-child {
+                margin-bottom: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 6em;
+            }
+        }
+    }
+    @media (max-width: $mediaMd) {
+    }
     @media (max-width: $mediaSm) {
         .rows { 
             flex-direction: column-reverse;

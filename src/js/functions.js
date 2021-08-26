@@ -63,7 +63,7 @@ $(function () {
 		});
 	});
 
-	stickyScroll();
+	// stickyScroll();
 });
 
 function stickyScroll() {

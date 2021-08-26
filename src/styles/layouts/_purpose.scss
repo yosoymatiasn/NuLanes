@@ -66,15 +66,17 @@
 
         &__title {
             @include flexCenter;
+            filter: grayscale(1);
             flex-basis: 44%;
             flex-shrink: 0;
-            background-image: url(../img/bike-lane.jpg);
             background-size: cover;
             background-color: rgba(0, 0, 0, 0.548);
             background-blend-mode: overlay;
             width: 100%;
             color: white;
             font-weight: bold;
+
+            
 
             h4 {
                 font-size: 1.8rem;
@@ -146,6 +148,8 @@
                 transform: scale(1);
             }
         }
+
+        
         
         @media (max-width: $mediaXl) {
             height: 340px;
@@ -180,6 +184,7 @@
             height: 200px;
             margin-bottom: 2em;
             margin-top: 0;
+            margin-right: 0;
 
             &:last-child {
                 margin-bottom: 0;
@@ -246,5 +251,21 @@
             }
         }
 
+    }
+
+    .purpose-card {
+        &:first-child .purpose-card__title {
+            background-image: url(../img/multimodal.jpg);
+            background-position: bottom;
+
+        }
+        &:nth-child(2) .purpose-card__title {
+            background-image: url(../img/safety.jpeg);
+            background-position: bottom;
+        }
+        &:last-child .purpose-card__title {
+            background-image: url(../img/care.jpg);
+            background-position: bottom;
+        }
     }
 }
